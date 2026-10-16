@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UjrahTask | হালাল মাইক্রোটাস্ক ও ইনস্ট্যান্ট ইনকাম প্ল্যাটফর্ম</title>
+  <meta name="description" content="UjrahTask এ ভেরিফাইড হালাল কাজ সম্পন্ন করে বিকাশ, নগদ বা রকেটে নিশ্চিত পারিশ্রমিক গ্রহণ করুন। ১০০% বিশ্বস্ত ও হালাল আয়ের সুযোগ।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span><i class="fa-solid fa-moon text-emerald"></i> <strong>হাদিস শরীফ:</strong> "শ্রমিকের গায়ের ঘাম শুকানোর আগেই তার পারিশ্রমিক দিয়ে দাও।" (ইবনে মাজাহ)</span>
+      <span class="badge-halal"><i class="fa-solid fa-shield-halal"></i> ১০০% হালাল ভেরিফাইড</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Ujrah<span class="accent-text">Task</span></span>
+          <span class="brand-tagline">হালাল মাইক্রো-আর্নিং</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#tasks" class="active"><i class="fa-solid fa-list-check"></i> কাজসমূহ</a>
+        <a href="#how-it-works"><i class="fa-solid fa-circle-question"></i> যেভাবে কাজ করে</a>
+        <a href="#halal-policy"><i class="fa-solid fa-shield-heart"></i> হালাল পলিসি</a>
+        <a href="#post-task" id="btn-open-post-task" class="btn-post-nav"><i class="fa-solid fa-plus-circle"></i> কাজ পোস্ট করুন</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="wallet-pill" id="wallet-pill-trigger">
+          <i class="fa-solid fa-wallet text-gold"></i>
+          <span class="wallet-label">ব্যালেন্স:</span>
+          <span class="wallet-amount" id="user-balance">৳ ৭৫.০০</span>
+          <button class="btn-quick-withdraw" title="উইথড্র করুন">টাকা তুলুন</button>
+        </div>
+
+        <div class="user-profile-badge">
+          <div class="avatar">
+            <i class="fa-solid fa-user-check"></i>
+          </div>
+          <span class="username">সাকিব ভাই</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-award text-gold"></i> বাংলাদেশের প্রথম শরিয়াহ-সম্মত মাইক্রোটাস্ক প্ল্যাটফর্ম
+      </div>
+      <h1 class="hero-title">
+        হালাল কাজ করুন, <br>
+        <span class="gradient-text">সততার সাথে আয়</span> ঘরে তুলুন
+      </h1>
+      <p class="hero-subtitle">
+        কোনো জুয়া, সুদী স্কিম বা ভুয়া বিজ্ঞাপন নেই। ছোট ছোট দরকারি ডিজিটাল কাজ সম্পন্ন করুন এবং কাজ অনুমোদনের সাথে সাথে বিকাশ ও নগদে পারিশ্রমিক বুঝে নিন।
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#tasks" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-bolt"></i> সরাসরি কাজ শুরু করুন
+        </a>
+        <button class="btn btn-glass btn-lg" id="btn-hero-post">
+          <i class="fa-solid fa-briefcase"></i> আপনার কাজ করিয়ে নিন
+        </button>
+      </div>
+
+      <!-- Live Platform Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-hand-holding-dollar text-emerald"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-value" id="stat-payout">৳ ৩,৪৫,০২০+</h3>
+            <p class="stat-label">সর্বমোট পরিশোধিত</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-users text-gold"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-value">৪,৮৫০+</h3>
+            <p class="stat-label">সক্রিয় ওয়ার্কার</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-circle-check text-emerald"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-value">১৮,৯০০+</h3>
+            <p class="stat-label">সম্পন্ন হালাল টাস্ক</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-clock-rotate-left text-blue"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-value">১৫ মিনিট</h3>
+            <p class="stat-label">গড় পেমেন্ট অনুমোদন</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Halal Guarantee Banner -->
+  <section class="halal-banner-section" id="halal-policy">
+    <div class="container">
+      <div class="halal-card">
+        <div class="halal-header">
+          <div class="badge-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h2>আমাদের ৪-দফা হালাল প্রতিশ্রুতি</h2>
+          <p>UjrahTask-এর প্রতিটি কাজ কঠোরভাবে যাচাই করা হয় যাতে আপনার উপার্জন সম্পূর্ণ হালাল ও বরকতময় থাকে।</p>
+        </div>
+        <div class="halal-grid">
+          <div class="halal-item">
+            <i class="fa-solid fa-ban text-danger"></i>
+            <h4>কোনো জুয়া বা বেটিং নয়</h4>
+            <p>ক্যাসিনো, 1xBet বা কোনো প্রকার জুয়ার প্রমোশন এখানে কঠোরভাবে নিষিদ্ধ।</p>
+          </div>
+          <div class="halal-item">
+            <i class="fa-solid fa-shield-xmark text-danger"></i>
+            <h4>সুদ বা ইনভেস্টমেন্ট স্কিম মুক্ত</h4>
+            <p>টাকা ডিপোজিট করে বসে বসে লাভের কোনো ভুয়া স্কিম আমাদের সাইটে নেই।</p>
+          </div>
+          <div class="halal-item">
+            <i class="fa-solid fa-eye-slash text-danger"></i>
+            <h4>অশ্লীলতামুক্ত কাজ</h4>
+            <p>কোনো অশালীন কনটেন্ট, মিউজিক বা ক্ষতিকর ভিডিও প্রমোট করা হয় না।</p>
+          </div>
+          <div class="halal-item">
+            <i class="fa-solid fa-handshake-angle text-emerald"></i>
+            <h4>দ্রুত ন্যায্য পারিশ্রমিক (উজরাহ)</h4>
+            <p>সঠিকভাবে কাজ শেষ করা মাত্রই নির্ধারিত মজুরি সরাসরি ব্যালেন্সে যোগ হয়।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Tasks Marketplace -->
+  <section class="tasks-section" id="tasks">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-tag"><i class="fa-solid fa-fire"></i> লাইভ কাজসমূহ</span>
+          <h2 class="section-title">পছন্দের কাজ বেছে নিন ও এখনই আয় করুন</h2>
+        </div>
+        <div class="task-filters">
+          <button class="filter-btn active" data-filter="all">সকল কাজ</button>
+          <button class="filter-btn" data-filter="app">অ্যাপ ও ওয়েবসাইট</button>
+          <button class="filter-btn" data-filter="youtube">তথ্য ও রিসার্চ</button>
+          <button class="filter-btn" data-filter="data">ডাটা এন্ট্রি</button>
+          <button class="filter-btn" data-filter="high">উচ্চ পারিশ্রমিক (৳২০+)</button>
+        </div>
+      </div>
+
+      <!-- Tasks Grid -->
+      <div class="tasks-grid" id="tasks-container">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-shoe-prints"></i> ৩টি সহজ ধাপ</span>
+        <h2 class="section-title">কিভাবে কাজ করে টাকা তুলবেন?</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">০১</div>
+          <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>কাজ পছন্দ করুন</h3>
+          <p>টাস্ক লিস্ট থেকে আপনার জন্য সহজ যে কাজটি মনে হয় সেটি সিলেক্ট করুন এবং নির্দেশনা পড়ুন।</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">০২</div>
+          <div class="step-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+          <h3>প্রমাণ জমা দিন</h3>
+          <p>কাজ সঠিকভাবে সম্পন্ন করে স্ক্রিনশট বা প্রমাণের লিংক সাবমিট করুন।</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">০৩</div>
+          <div class="step-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+          <h3>ইনস্ট্যান্ট পেমেন্ট নিন</h3>
+          <p>কাজ অনুমোদিত হতেই বিকাশ, নগদ বা রকেট অ্যাকাউন্টে টাকা উইথড্র করে নিন।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- User Wallet Modal -->
+  <div class="modal-overlay" id="wallet-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fa-solid fa-wallet text-gold"></i>
+          <h3>আমার ওয়ালেট ও উইথড্র</h3>
+        </div>
+        <button class="btn-close-modal" id="close-wallet-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="wallet-summary-box">
+          <div class="summary-item">
+            <span class="label">উত্তোলনযোগ্য ব্যালেন্স</span>
+            <span class="value text-emerald" id="modal-available-balance">৳ ৭৫.০০</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">যাচাই প্রক্রিয়াধীন</span>
+            <span class="value text-gold" id="modal-pending-balance">৳ ২৫.০০</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">মোট উত্তোলিত</span>
+            <span class="value" id="modal-withdrawn-balance">৳ ১৫০.০০</span>
+          </div>
+        </div>
+
+        <form id="withdraw-form" class="withdraw-form">
+          <label class="form-label">পেমেন্ট মেথড সিলেক্ট করুন:</label>
+          <div class="payment-method-selector">
+            <label class="method-option">
+              <input type="radio" name="paymentMethod" value="bKash" checked>
+              <div class="method-card bkash-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>বিকাশ (bKash)</span>
+              </div>
+            </label>
+            <label class="method-option">
+              <input type="radio" name="paymentMethod" value="Nagad">
+              <div class="method-card nagad-card">
+                <i class="fa-solid fa-wallet"></i>
+                <span>নগদ (Nagad)</span>
+              </div>
+            </label>
+            <label class="method-option">
+              <input type="radio" name="paymentMethod" value="Rocket">
+              <div class="method-card rocket-card">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>রকেট (Rocket)</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="withdraw-phone">মোবাইল নাম্বার (ব্যক্তিগত):</label>
+            <input type="text" id="withdraw-phone" placeholder="017XXXXXXXX" required>
+          </div>
+
+          <div class="form-group">
+            <label for="withdraw-amount">টাকার পরিমাণ (সর্বনিম্ন ৳৫০):</label>
+            <input type="number" id="withdraw-amount" min="50" max="10000" placeholder="টাকার পরিমাণ লিখুন" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-paper-plane"></i> উইথড্র রিকোয়েস্ট পাঠান
+          </button>
+        </form>
+
+        <div class="recent-payouts">
+          <h4><i class="fa-solid fa-history"></i> সাম্প্রতিক লেনদেন</h4>
+          <ul class="payout-list" id="payout-history-list">
+            <li>
+              <span><i class="fa-solid fa-arrow-down text-emerald"></i> বিকাশ (017***921)</span>
+              <span class="text-emerald font-bold">+ ৳ ১০০.০০ (সফল)</span>
+            </li>
+            <li>
+              <span><i class="fa-solid fa-arrow-down text-emerald"></i> নগদ (018***415)</span>
+              <span class="text-emerald font-bold">+ ৳ ৫০.০০ (সফল)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Details & Submission Modal -->
+  <div class="modal-overlay" id="task-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fa-solid fa-clipboard-list text-emerald"></i>
+          <h3 id="modal-task-title">টাস্কের শিরোনাম</h3>
+        </div>
+        <button class="btn-close-modal" id="close-task-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="task-meta-bar">
+          <span class="badge-reward" id="modal-task-reward"><i class="fa-solid fa-coins"></i> ৳ ১৫.০০</span>
+          <span class="badge-time" id="modal-task-time"><i class="fa-regular fa-clock"></i> ৩ মিনিট</span>
+          <span class="badge-slots" id="modal-task-slots"><i class="fa-solid fa-user-group"></i> ৫০/১০০ বাকি</span>
+        </div>
+
+        <div class="task-instructions-box">
+          <h4><i class="fa-solid fa-list-ol"></i> কাজের সঠিক নিয়ম ও ধাপসমূহ:</h4>
+          <div id="modal-task-steps" class="steps-content">
+            <!-- Dynamic steps -->
+          </div>
+        </div>
+
+        <form id="task-submit-form" class="task-submit-form">
+          <div class="form-group">
+            <label for="proof-text"><i class="fa-solid fa-circle-info"></i> আপনার কাজের বিবরণ বা প্রমাণের লিংক লিখুন:</label>
+            <textarea id="proof-text" rows="3" placeholder="যেমন: কাজ শেষ করেছি, প্রোফাইল নাম / ইউজারনেম / ট্রানজেকশন আইডি..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="proof-screenshot"><i class="fa-solid fa-camera"></i> স্ক্রিনশট লিংক (যদি থাকে / ঐচ্ছিক):</label>
+            <input type="url" id="proof-screenshot" placeholder="https://imgur.com/ বা গুগল ড্রাইভ লিংক">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-check-double"></i> প্রুফ সাবমিট করুন
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post a Task Modal (For Employers / 2 Brothers) -->
+  <div class="modal-overlay" id="post-task-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fa-solid fa-plus-circle text-emerald"></i>
+          <h3>নতুন হালাল কাজ পোস্ট করুন</h3>
+        </div>
+        <button class="btn-close-modal" id="close-post-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="create-task-form" class="withdraw-form">
+          <div class="form-group">
+            <label for="new-task-title">কাজের শিরোনাম:</label>
+            <input type="text" id="new-task-title" placeholder="যেমন: আমাদের ওয়েবসাইটে রেজিস্ট্রেশন করে রিভিউ দিন" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-task-category">ক্যাটাগরি:</label>
+              <select id="new-task-category" required>
+                <option value="app">অ্যাপ ও ওয়েবসাইট টেস্ট</option>
+                <option value="youtube">তথ্য ও রিসার্চ</option>
+                <option value="data">ডাটা এন্ট্রি</option>
+                <option value="social">সোশ্যাল টাস্ক</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="new-task-pay">প্রতি ওয়ার্কারকে পারিশ্রমিক (টাকা):</label>
+              <input type="number" id="new-task-pay" min="5" value="15" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-task-slots">কতজন ওয়ার্কার দরকার:</label>
+              <input type="number" id="new-task-slots" min="1" value="50" required>
+            </div>
+            <div class="form-group">
+              <label for="new-task-time">আনুমানিক সময়:</label>
+              <input type="text" id="new-task-time" value="৩ মিনিট" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="new-task-instructions">কাজের বিস্তারিত নিয়মাবলী:</label>
+            <textarea id="new-task-instructions" rows="3" placeholder="ধাপ ১: এই লিংকে যান... ধাপ ২: একাউন্ট খুলুন..." required></textarea>
+          </div>
+
+          <div class="alert-halal-note">
+            <i class="fa-solid fa-shield-halal text-emerald"></i> 
+            <span>মনে রাখবেন: কোনো প্রকার বেটিং, জুয়া বা অনৈতিক প্রমোশনের কাজ সরাসরি বাতিল ও একাউন্ট ব্লক করা হবে।</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-upload"></i> কাজ পাবলিশ করুন
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-coins"></i></div>
+          <span class="brand-name">Ujrah<span class="accent-text">Task</span></span>
+        </div>
+        <p>সততা ও বিশ্বস্ততার সাথে হালাল কাজের সুযোগ তৈরি করাই আমাদের অঙ্গীকার।</p>
+      </div>
+      <div class="footer-links">
+        <h4>গুরুত্বপূর্ণ লিংক</h4>
+        <a href="#tasks">সকল কাজ</a>
+        <a href="#halal-policy">শরিয়াহ গাইডলাইন</a>
+        <a href="#how-it-works">কীভাবে কাজ করবেন</a>
+      </div>
+      <div class="footer-payment">
+        <h4>গ্রহণযোগ্য পেমেন্ট পার্টনার</h4>
+        <div class="payment-badges">
+          <span class="pay-badge bkash">bKash</span>
+          <span class="pay-badge nagad">Nagad</span>
+          <span class="pay-badge rocket">Rocket</span>
+        </div>
+        <p class="copy-text">&copy; ২০২৬ UjrahTask. সর্বস্বত্ব সংরক্ষিত।</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
