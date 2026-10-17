@@ -1,10 +1,10 @@
 // UjrahTask - Interactive Platform Engine
 document.addEventListener('DOMContentLoaded', () => {
-  // State Management
+  // State Management (Fresh account with zero fake balances)
   let userWallet = {
-    available: 75.0,
-    pending: 25.0,
-    withdrawn: 150.0
+    available: 0.0,
+    pending: 0.0,
+    withdrawn: 0.0
   };
 
   // Initial Sample Tasks (100% Halal Verified)
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTasks();
 
     taskModal.classList.remove('active');
-    showToast(`আলহামদুলিল্লাহ! আপনার কাজ জমা হয়েছে। পর্যালোচনার পর ৳${selectedTask.reward.toFixed(2)} ব্যালেন্সে যুক্ত হবে।`, 'success');
+    showToast(`আলহামদুলিল্লাহ! আপনার কাজ জমা হয়েছে। বিজ্ঞাপক ও নেটওয়ার্ক পর্যালোচনার পর (৭-১৪ দিন) ৳${selectedTask.reward.toFixed(2)} ব্যালেন্সে যুক্ত হবে।`, 'success');
   });
 
   // Wallet Modal Handlers
@@ -303,17 +303,21 @@ document.addEventListener('DOMContentLoaded', () => {
     userWallet.withdrawn += amount;
     updateWalletUI();
 
+    // Remove empty notice if present
+    const emptyNotice = payoutHistoryList.querySelector('.empty-history-notice');
+    if (emptyNotice) emptyNotice.remove();
+
     // Add to history list
     const maskedPhone = phone.substring(0, 3) + '***' + phone.substring(phone.length - 3);
     const li = document.createElement('li');
     li.innerHTML = `
       <span><i class="fa-solid fa-arrow-down text-emerald"></i> ${method} (${maskedPhone})</span>
-      <span class="text-emerald font-bold">+ ৳ ${amount.toFixed(2)} (প্রক্রিয়াধীন)</span>
+      <span class="text-gold font-bold">৳ ${amount.toFixed(2)} (যাচাই ও প্রক্রিয়াধীন)</span>
     `;
     payoutHistoryList.prepend(li);
 
     withdrawForm.reset();
-    showToast(`উইথড্র রিকোয়েস্ট সফল! ৳${amount.toFixed(2)} আপনার ${method} নম্বরে শীঘ্রই পাঠানো হচ্ছে।`, 'success');
+    showToast(`উইথড্র রিকোয়েস্ট জমা হয়েছে! টাস্ক কোয়ালিটি যাচাই ও রিভিউ শেষে ৳${amount.toFixed(2)} পাঠানো হবে।`, 'success');
   });
 
   // Handle Post New Task

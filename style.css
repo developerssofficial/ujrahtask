@@ -1039,10 +1039,208 @@ input:focus, select:focus, textarea:focus {
   color: var(--text-dim);
 }
 
+.compliance-notice-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  color: #d1fae5;
+  margin-top: 10px;
+}
+
+.alert-payout-notice, .alert-hold-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: #fef3c7;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.hold-policy-footnote {
+  font-size: 0.78rem;
+  color: #fbbf24;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.empty-history-notice {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* Legal & Info Pages Styling */
+.page-hero {
+  padding: 60px 0 40px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.page-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.legal-section {
+  padding: 50px 0 80px;
+}
+
+.legal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.legal-card h2 {
+  font-size: 1.5rem;
+  color: var(--emerald);
+  margin: 30px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 8px;
+}
+
+.legal-card h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-card h3 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin: 20px 0 10px;
+}
+
+.legal-card p {
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.legal-card ul, .legal-card ol {
+  color: var(--text-muted);
+  padding-left: 24px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.legal-card li {
+  margin-bottom: 8px;
+}
+
+.legal-card strong {
+  color: #ffffff;
+}
+
+.badge-warning-box {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--danger);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  color: #fca5a5;
+  margin: 20px 0;
+  font-size: 0.92rem;
+}
+
+.badge-info-box {
+  background: rgba(16, 185, 129, 0.08);
+  border-left: 4px solid var(--emerald);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  color: #a7f3d0;
+  margin: 20px 0;
+  font-size: 0.92rem;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-text h4 {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.info-text p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-title { font-size: 2.3rem; }
+  .page-title { font-size: 2rem; }
   .nav-links { display: none; }
   .footer-content { grid-template-columns: 1fr; gap: 30px; }
   .tasks-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .legal-card { padding: 24px; }
 }

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>যোগাযোগ ও সাপোর্ট (Contact Us) | UjrahTask</title>
+  <meta name="description" content="UjrahTask সাপোর্ট টিমের সাথে যোগাযোগ করুন। টাস্ক ভেরিফিকেশন, পেমেন্ট অনুসন্ধান ও কারিগরি সহায়তায় আমরা সবসময় প্রস্তুত।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span><i class="fa-solid fa-moon text-emerald"></i> <strong>হাদিস শরীফ:</strong> "শ্রমিকের গায়ের ঘাম শুকানোর আগেই তার পারিশ্রমিক দিয়ে দাও।" (ইবনে মাজাহ)</span>
+      <span class="badge-halal"><i class="fa-solid fa-shield-halal"></i> ১০০% হালাল ভেরিফাইড</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Ujrah<span class="accent-text">Task</span></span>
+          <span class="brand-tagline">হালাল মাইক্রো-আর্নিং</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html"><i class="fa-solid fa-list-check"></i> কাজসমূহ</a>
+        <a href="about.html"><i class="fa-solid fa-circle-info"></i> যেভাবে কাজ করে</a>
+        <a href="terms.html"><i class="fa-solid fa-file-contract"></i> নিয়মাবলী</a>
+        <a href="privacy.html"><i class="fa-solid fa-shield-halal"></i> প্রাইভেসি</a>
+        <a href="contact.html" class="active"><i class="fa-solid fa-envelope"></i> যোগাযোগ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#tasks" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">
+          <i class="fa-solid fa-briefcase"></i> কাজ দেখুন
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-title">আমাদের সাথে <span class="gradient-text">যোগাযোগ করুন</span></h1>
+      <p class="page-subtitle">যেকোনো প্রশ্ন, পেমেন্ট জিজ্ঞাসা কিংবা সহায়তার জন্য আমাদের টিমকে বার্তা পাঠান।</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="legal-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info Side -->
+        <div class="contact-info-card">
+          <div class="info-item">
+            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="info-text">
+              <h4>ইমেইল সাপোর্ট</h4>
+              <p>support@ujrahtask.dev.cv<br>admin@ujrahtask.dev.cv</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+            <div class="info-text">
+              <h4>সাপোর্ট সময় ও রেসপন্স</h4>
+              <p>শনিবার - বৃহস্পতিবার<br>২৪ থেকে ৪৮ ঘণ্টার মধ্যে উত্তর দেওয়া হয়</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="info-text">
+              <h4>অপারেশনাল লোকেশন</h4>
+              <p>ঢাকা, বাংলাদেশ</p>
+            </div>
+          </div>
+
+          <div class="badge-info-box" style="margin: 10px 0 0 0;">
+            <i class="fa-solid fa-circle-question"></i> <strong>দ্রুত সমাধানের জন্য:</strong> আপনার মেসেজে রেজিস্ট্রেশন করা ইমেইল এবং সম্পর্কিত টাস্কের আইডি উল্লেখ করতে ভুলবেন না।
+          </div>
+        </div>
+
+        <!-- Contact Form Side -->
+        <div class="legal-card" style="padding: 32px; margin: 0; max-width: 100%;">
+          <h2 style="margin-top: 0;"><i class="fa-solid fa-paper-plane"></i> বার্তা পাঠান</h2>
+          <form id="contact-us-form" class="withdraw-form" onsubmit="event.preventDefault(); document.getElementById('contact-success-msg').style.display = 'block'; this.reset();">
+            <div class="form-group">
+              <label for="contact-name">আপনার পূর্ণ নাম:</label>
+              <input type="text" id="contact-name" placeholder="যেমন: মোহাম্মদ রাকিব" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">আপনার ইমেইল ঠিকানা:</label>
+              <input type="email" id="contact-email" placeholder="example@gmail.com" required style="width: 100%; background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px 14px; color: #ffffff; font-family: inherit; font-size: 0.95rem; outline: none;">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">মেসেজের বিষয় (Subject):</label>
+              <select id="contact-subject" required>
+                <option value="task">টাস্ক ভেরিফিকেশন ও রিভিউ সম্পর্কিত</option>
+                <option value="payment">পেমেন্ট ও উইথড্র জিজ্ঞাসা</option>
+                <option value="employer">বিজ্ঞাপক / নতুন কাজ পোস্ট সংক্রান্ত</option>
+                <option value="other">অন্যান্য অনুসন্ধান</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">আপনার বার্তা বিস্তারিত লিখুন:</label>
+              <textarea id="contact-message" rows="4" placeholder="আপনার সমস্যা বা প্রশ্নের বিস্তারিত বিবরণ দিন..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa-solid fa-paper-plane"></i> মেসেজ পাঠান
+            </button>
+
+            <div id="contact-success-msg" style="display: none; margin-top: 16px; padding: 12px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--emerald); border-radius: var(--radius-sm); color: #34d399; font-size: 0.9rem; text-align: center;">
+              <i class="fa-solid fa-circle-check"></i> ধন্যবাদ! আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে। আমাদের সাপোর্ট টিম শীঘ্রই আপনার সাথে যোগাযোগ করবে।
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-coins"></i></div>
+          <span class="brand-name">Ujrah<span class="accent-text">Task</span></span>
+        </div>
+        <p>সততা ও স্বচ্ছতার সাথে হালাল উপার্জনের সুযোগ তৈরি করাই আমাদের অঙ্গীকার। কোনো প্রকার প্রতারণা বা স্প্যাম সহ্য করা হয় না।</p>
+      </div>
+      <div class="footer-links">
+        <h4>কোম্পানি ও নীতিমালা</h4>
+        <a href="about.html">আমাদের সম্পর্কে ও নিয়ম</a>
+        <a href="terms.html">ব্যবহারের শর্তাবলী (Terms)</a>
+        <a href="privacy.html">প্রাইভেসি পলিসি (Privacy)</a>
+        <a href="contact.html">যোগাযোগ ও সাপোর্ট</a>
+      </div>
+      <div class="footer-payment">
+        <h4>গ্রহণযোগ্য পেমেন্ট পার্টনার</h4>
+        <div class="payment-badges">
+          <span class="pay-badge bkash">bKash</span>
+          <span class="pay-badge nagad">Nagad</span>
+          <span class="pay-badge rocket">Rocket</span>
+        </div>
+        <p class="hold-policy-footnote"><i class="fa-solid fa-clock-rotate-left"></i> টাস্ক ভেরিফাই হওয়ার পর পেমেন্ট, কোয়ালিটি যাচাইয়ে ৭-১৪ দিন হোল্ড থাকতে পারে।</p>
+        <p class="copy-text">&copy; ২০২৬ UjrahTask. সর্বস্বত্ব সংরক্ষিত।</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
