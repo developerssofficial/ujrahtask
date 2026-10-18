@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নিবন্ধন / সাইন আপ | UjrahTask - হালাল মাইক্রো-আর্নিং প্ল্যাটফর্ম</title>
+  <meta name="description" content="UjrahTask-এ ফ্রি অ্যাকাউন্ট তৈরি করুন। সততার সাথে হালাল টাস্ক সম্পন্ন করে বিকাশ, নগদ বা রকেটে নিশ্চিত পারিশ্রমিক গ্রহণ করুন।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span><i class="fa-solid fa-shield-halal text-emerald"></i> নৈতিক ও হালাল উপার্জনের স্বচ্ছ প্ল্যাটফর্ম | প্রতিটি সঠিক কাজের জন্য সংরক্ষিত ন্যায্য পারিশ্রমিক</span>
+      <span class="badge-halal"><i class="fa-solid fa-check"></i> হালাল নীতিমালা অনুসরণীয়</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Ujrah<span class="accent-text">Task</span></span>
+          <span class="brand-tagline">হালাল মাইক্রো-আর্নিং</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> হোম</a>
+        <a href="tasks.html"><i class="fa-solid fa-list-check"></i> টাস্কসমূহ</a>
+        <a href="about.html"><i class="fa-solid fa-circle-info"></i> যেভাবে কাজ করে</a>
+        <a href="faq.html"><i class="fa-solid fa-circle-question"></i> প্রশ্নোত্তর (FAQ)</a>
+        <a href="terms.html"><i class="fa-solid fa-file-contract"></i> নিয়মাবলী</a>
+        <a href="contact.html"><i class="fa-solid fa-envelope"></i> যোগাযোগ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-glass" style="padding: 7px 18px; font-size: 0.9rem;">
+          <i class="fa-solid fa-right-to-bracket"></i> লগইন
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Signup Main Content -->
+  <main class="auth-section">
+    <div class="container">
+      <div class="auth-card" style="max-width: 520px;">
+        <div class="auth-header">
+          <div class="auth-icon"><i class="fa-solid fa-user-plus"></i></div>
+          <h2>নতুন অ্যাকাউন্ট তৈরি করুন</h2>
+          <p>বিনামূল্যে অ্যাকাউন্ট খুলে আজই নৈতিক ও হালাল টাস্কে অংশ নিন</p>
+        </div>
+
+        <div id="signup-alert" class="badge-warning-box" style="display: none; margin-bottom: 16px;"></div>
+
+        <form id="signup-form" class="auth-form">
+          <div class="form-group">
+            <label for="signup-name"><i class="fa-solid fa-user"></i> আপনার পূর্ণ নাম</label>
+            <input type="text" id="signup-name" placeholder="যেমন: তানভীর হাসান" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="signup-email"><i class="fa-solid fa-envelope"></i> ইমেইল ঠিকানা</label>
+              <input type="email" id="signup-email" placeholder="example@gmail.com" required>
+            </div>
+            <div class="form-group">
+              <label for="signup-phone"><i class="fa-solid fa-mobile-screen"></i> মোবাইল নম্বর (বিকাশ/নগদ)</label>
+              <input type="text" id="signup-phone" placeholder="017XXXXXXXX" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="signup-password"><i class="fa-solid fa-lock"></i> পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)</label>
+              <input type="password" id="signup-password" minlength="6" placeholder="******" required>
+            </div>
+            <div class="form-group">
+              <label for="signup-confirm-password"><i class="fa-solid fa-lock"></i> পাসওয়ার্ড নিশ্চিত করুন</label>
+              <input type="password" id="signup-confirm-password" minlength="6" placeholder="******" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: flex-start; gap: 8px; margin-top: 6px;">
+            <input type="checkbox" id="agree-terms" required style="width: auto; margin-top: 4px; cursor: pointer;">
+            <label for="agree-terms" style="margin-bottom: 0; font-size: 0.85rem; cursor: pointer; color: var(--text-muted); line-height: 1.4;">
+              আমি প্ল্যাটফর্মের <a href="terms.html" target="_blank" class="text-emerald">ব্যবহারের শর্তাবলী</a> ও <a href="privacy.html" target="_blank" class="text-emerald">গোপনীয়তা নীতি</a> পড়েছি এবং সম্মত হচ্ছি।
+            </label>
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: flex-start; gap: 8px;">
+            <input type="checkbox" id="agree-antifraud" required style="width: auto; margin-top: 4px; cursor: pointer;">
+            <label for="agree-antifraud" style="margin-bottom: 0; font-size: 0.85rem; cursor: pointer; color: var(--text-muted); line-height: 1.4;">
+              আমি নিশ্চিত করছি যে আমি কোনো ভিপিএন, প্রক্সি বা ডুপ্লিকেট অ্যাকাউন্ট ব্যবহার করব না।
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 14px;">
+            <i class="fa-solid fa-check-circle"></i> অ্যাকাউন্ট সম্পূর্ণ করুন
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>ইতিমধ্যেই অ্যাকাউন্ট আছে? <a href="login.html" class="text-emerald font-bold">লগইন করুন</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-coins"></i></div>
+          <span class="brand-name">Ujrah<span class="accent-text">Task</span></span>
+        </div>
+        <p>সততা ও স্বচ্ছতার সাথে হালাল উপার্জনের সুযোগ তৈরি করাই আমাদের অঙ্গীকার। কোনো প্রকার প্রতারণা বা স্প্যাম সহ্য করা হয় না।</p>
+      </div>
+      <div class="footer-links">
+        <h4>কোম্পানি ও নীতিমালা</h4>
+        <a href="about.html">আমাদের সম্পর্কে ও নিয়ম</a>
+        <a href="faq.html">সাধারণ জিজ্ঞাসা (FAQ)</a>
+        <a href="terms.html">ব্যবহারের শর্তাবলী (Terms)</a>
+        <a href="privacy.html">প্রাইভেসি পলিসি (Privacy)</a>
+        <a href="contact.html">যোগাযোগ ও সাপোর্ট</a>
+      </div>
+      <div class="footer-payment">
+        <h4>সমর্থিত উত্তোলনের মাধ্যম</h4>
+        <div class="payment-badges">
+          <span class="pay-badge bkash">bKash</span>
+          <span class="pay-badge nagad">Nagad</span>
+          <span class="pay-badge rocket">Rocket</span>
+        </div>
+        <p class="hold-policy-footnote"><i class="fa-solid fa-clock-rotate-left"></i> টাস্ক ভেরিফাই হওয়ার পর পেমেন্ট, কোয়ালিটি যাচাইয়ে ৭-১৪ দিন হোল্ড থাকতে পারে।</p>
+        <p class="copy-text">&copy; ২০২৬ UjrahTask. সর্বস্বত্ব সংরক্ষিত।</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

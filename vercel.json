@@ -1,4 +1,15 @@
 {
   "version": 2,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/register", "destination": "/signup.html" },
+    { "source": "/signup", "destination": "/signup.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/tasks", "destination": "/tasks.html" },
+    { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/contact", "destination": "/contact.html" }
+  ]
 }

@@ -16,8 +16,8 @@
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
     <div class="container announcement-content">
-      <span><i class="fa-solid fa-moon text-emerald"></i> <strong>হাদিস শরীফ:</strong> "শ্রমিকের গায়ের ঘাম শুকানোর আগেই তার পারিশ্রমিক দিয়ে দাও।" (ইবনে মাজাহ)</span>
-      <span class="badge-halal"><i class="fa-solid fa-shield-halal"></i> ১০০% হালাল ভেরিফাইড</span>
+      <span><i class="fa-solid fa-shield-halal text-emerald"></i> নৈতিক ও হালাল উপার্জনের স্বচ্ছ প্ল্যাটফর্ম | প্রতিটি সঠিক কাজের জন্য সংরক্ষিত ন্যায্য পারিশ্রমিক</span>
+      <span class="badge-halal"><i class="fa-solid fa-check"></i> হালাল নীতিমালা অনুসরণীয়</span>
     </div>
   </div>
 
@@ -35,28 +35,18 @@
       </a>
 
       <nav class="nav-links">
-        <a href="index.html" class="active"><i class="fa-solid fa-list-check"></i> কাজসমূহ</a>
+        <a href="index.html" class="active"><i class="fa-solid fa-house"></i> হোম</a>
+        <a href="tasks.html"><i class="fa-solid fa-list-check"></i> টাস্কসমূহ</a>
         <a href="about.html"><i class="fa-solid fa-circle-info"></i> যেভাবে কাজ করে</a>
+        <a href="faq.html"><i class="fa-solid fa-circle-question"></i> প্রশ্নোত্তর (FAQ)</a>
         <a href="terms.html"><i class="fa-solid fa-file-contract"></i> নিয়মাবলী</a>
-        <a href="privacy.html"><i class="fa-solid fa-shield-halal"></i> প্রাইভেসি</a>
         <a href="contact.html"><i class="fa-solid fa-envelope"></i> যোগাযোগ</a>
-        <a href="#post-task" id="btn-open-post-task" class="btn-post-nav"><i class="fa-solid fa-plus-circle"></i> কাজ পোস্ট করুন</a>
       </nav>
 
-      <div class="nav-actions">
-        <div class="wallet-pill" id="wallet-pill-trigger">
-          <i class="fa-solid fa-wallet text-gold"></i>
-          <span class="wallet-label">ব্যালেন্স:</span>
-          <span class="wallet-amount" id="user-balance">৳ ০.০০</span>
-          <button class="btn-quick-withdraw" title="উইথড্র করুন">টাকা তুলুন</button>
-        </div>
-
-        <div class="user-profile-badge">
-          <div class="avatar">
-            <i class="fa-solid fa-user-check"></i>
-          </div>
-          <span class="username">আমার অ্যাকাউন্ট</span>
-        </div>
+      <div class="nav-actions" id="nav-auth-actions">
+        <!-- Rendered dynamically by app.js based on auth state -->
+        <a href="login.html" class="btn btn-glass" style="padding: 7px 16px; font-size: 0.88rem;"><i class="fa-solid fa-right-to-bracket"></i> লগইন</a>
+        <a href="signup.html" class="btn btn-primary" style="padding: 7px 16px; font-size: 0.88rem;"><i class="fa-solid fa-user-plus"></i> সাইন আপ</a>
       </div>
     </div>
   </header>
@@ -66,29 +56,29 @@
     <div class="hero-glow"></div>
     <div class="container hero-content">
       <div class="hero-badge">
-        <i class="fa-solid fa-award text-gold"></i> শরিয়াহ-সম্মত ও স্বচ্ছ মাইক্রোটাস্ক প্ল্যাটফর্ম
+        <i class="fa-solid fa-shield-halal text-emerald"></i> শরিয়াহ-সম্মত ও স্বচ্ছ মাইক্রোটাস্ক প্ল্যাটফর্ম
       </div>
       <h1 class="hero-title">
         হালাল কাজ করুন, <br>
         <span class="gradient-text">সততার সাথে আয়</span> ঘরে তুলুন
       </h1>
       <p class="hero-subtitle">
-        কোনো জুয়া, সুদী স্কিম বা ভুয়া বিজ্ঞাপন নেই। ছোট ছোট দরকারি ডিজিটাল কাজ সম্পন্ন করুন। টাস্ক যাচাই ও পর্যালোচনার পর বিকাশ, নগদ বা রকেটে নিশ্চিত পারিশ্রমিক বুঝে নিন।
+        কোনো জুয়া, সুদী স্কিম বা ভুয়া বিজ্ঞাপন নেই। ছোট ছোট দরকারি ডিজিটাল কাজ ও অফারওয়াল সার্ভে সম্পন্ন করুন। বিজ্ঞাপক যাচাই ও পর্যালোচনার পর বিকাশ, নগদ বা রকেটে নিশ্চিত পারিশ্রমিক বুঝে নিন।
       </p>
 
       <div class="hero-cta-group">
-        <a href="#tasks" class="btn btn-primary btn-lg">
+        <a href="tasks.html" class="btn btn-primary btn-lg">
           <i class="fa-solid fa-bolt"></i> সরাসরি কাজ শুরু করুন
         </a>
-        <button class="btn btn-glass btn-lg" id="btn-hero-post">
-          <i class="fa-solid fa-briefcase"></i> আপনার কাজ করিয়ে নিন
-        </button>
+        <a href="signup.html" class="btn btn-glass btn-lg">
+          <i class="fa-solid fa-user-plus"></i> ফ্রি অ্যাকাউন্ট খুলুন
+        </a>
       </div>
 
       <!-- Compliance Notice Banner -->
       <div class="compliance-notice-banner">
         <i class="fa-solid fa-circle-check text-emerald"></i>
-        <span><strong>স্বচ্ছতা নীতি:</strong> প্রতিটি টাস্ক বিজ্ঞাপক ও নেটওয়ার্ক দ্বারা পর্যবেক্ষণ করা হয়। ফেক বা অসম্পূর্ণ কাজের আবেদন বাতিলযোগ্য।</span>
+        <span><strong>স্বচ্ছতা নীতি:</strong> প্রতিটি টাস্ক বিজ্ঞাপক নেটওয়ার্ক দ্বারা পর্যবেক্ষণ করা হয়। ফেক প্রুফ বা ভিপিএন ব্যবহার করলে অ্যাকাউন্ট স্থায়ী ব্যান হবে।</span>
       </div>
     </div>
   </section>
@@ -100,7 +90,7 @@
         <div class="halal-header">
           <div class="badge-icon"><i class="fa-solid fa-scale-balanced"></i></div>
           <h2>আমাদের ৪-দফা হালাল প্রতিশ্রুতি</h2>
-          <p>UjrahTask-এর প্রতিটি কাজ কঠোরভাবে যাচাই করা হয় যাতে আপনার উপার্জন সম্পূর্ণ হালাল ও বরকতময় থাকে।</p>
+          <p>UjrahTask-এর প্রতিটি কাজ কঠোরভাবে নিরীক্ষা করা হয় যাতে আপনার উপার্জন সম্পূর্ণ হালাল ও বরকতময় থাকে।</p>
         </div>
         <div class="halal-grid">
           <div class="halal-item">
@@ -116,12 +106,12 @@
           <div class="halal-item">
             <i class="fa-solid fa-eye-slash text-danger"></i>
             <h4>অশ্লীলতামুক্ত কাজ</h4>
-            <p>কোনো অশালীন কনটেন্ট, মিউজিক বা ক্ষতিকর ভিডিও প্রমোট করা হয় না।</p>
+            <p>কোনো অশালীন কনটেন্ট বা ক্ষতিকর অ্যাপের প্রমোশন করা হয় না।</p>
           </div>
           <div class="halal-item">
             <i class="fa-solid fa-handshake-angle text-emerald"></i>
             <h4>ন্যায্য পারিশ্রমিক (উজরাহ)</h4>
-            <p>সঠিকভাবে কাজ যাচাই হওয়ার পর নির্ধারিত মজুরি ওয়ার্কারের ব্যালেন্সে যোগ হয়।</p>
+            <p>বিজ্ঞাপকের ভেরিফিকেশন ও ট্র্যাকিং চার্জব্যাক সাইকেল শেষে নির্ধারিত মজুরি ওয়ার্কারের ব্যালেন্সে যোগ হয়।</p>
           </div>
         </div>
       </div>
@@ -133,21 +123,26 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-tag"><i class="fa-solid fa-fire"></i> লাইভ কাজসমূহ</span>
+          <span class="section-tag"><i class="fa-solid fa-fire"></i> নির্বাচিত কাজসমূহ</span>
           <h2 class="section-title">পছন্দের কাজ বেছে নিন ও সঠিক নিয়মে সম্পন্ন করুন</h2>
         </div>
         <div class="task-filters">
           <button class="filter-btn active" data-filter="all">সকল কাজ</button>
           <button class="filter-btn" data-filter="app">অ্যাপ ও ওয়েবসাইট</button>
-          <button class="filter-btn" data-filter="youtube">তথ্য ও রিসার্চ</button>
+          <button class="filter-btn" data-filter="survey">রিসার্চ ও সার্ভে</button>
           <button class="filter-btn" data-filter="data">ডাটা এন্ট্রি</button>
-          <button class="filter-btn" data-filter="high">উচ্চ পারিশ্রমিক (৳২০+)</button>
         </div>
       </div>
 
       <!-- Tasks Grid -->
       <div class="tasks-grid" id="tasks-container">
-        <!-- Injected via JavaScript -->
+        <!-- Injected via JavaScript with clean IDs and Providers -->
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="tasks.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-arrow-right"></i> সমস্ত টাস্ক ও অফারওয়াল দেখুন
+        </a>
       </div>
     </div>
   </section>
@@ -165,7 +160,7 @@
           <div class="step-number">০১</div>
           <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
           <h3>কাজ পছন্দ করুন</h3>
-          <p>টাস্ক লিস্ট থেকে আপনার জন্য উপযুক্ত কাজটি বেছে নিন এবং বিস্তারিত নির্দেশনা পড়ুন।</p>
+          <p>টাস্ক লিস্ট বা অফারওয়াল থেকে আপনার পছন্দের কাজটি বেছে নিন এবং বিস্তারিত নির্দেশনা পড়ুন।</p>
         </div>
         <div class="step-card">
           <div class="step-number">০২</div>
@@ -177,7 +172,7 @@
           <div class="step-number">০৩</div>
           <div class="step-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
           <h3>ভেরিফিকেশন ও পেমেন্ট</h3>
-          <p>টাস্ক সঠিক পর্যালোচনার পর পেমেন্ট অনুমোদিত হয়। কোয়ালিটি নিশ্চিত করতে ৭-১৪ দিন হোল্ড থাকতে পারে।</p>
+          <p>টাস্ক পর্যালোচনার পর পেমেন্ট অনুমোদিত হয়। কোয়ালিটি যাচাই ও বিজ্ঞাপক চার্জব্যাক রোধে ৭-১৪ দিন হোল্ড থাকতে পারে।</p>
         </div>
       </div>
     </div>
@@ -211,11 +206,11 @@
 
         <div class="alert-payout-notice">
           <i class="fa-solid fa-circle-exclamation text-gold"></i>
-          <span><strong>পেমেন্ট পলিসি:</strong> টাস্ক ভেরিফাই হওয়ার পর পেমেন্ট উইথড্রযোগ্য হয়। নেটওয়ার্ক ও টাস্ক পর্যালোচনার জন্য ৭-১৪ দিন হোল্ড থাকতে পারে।</span>
+          <span><strong>উত্তোলন পলিসি:</strong> সর্বনিম্ন উত্তোলন সীমা <strong>৳ ৫০.০০</strong>। বিজ্ঞাপক পোস্টব্যাক ও কোয়ালিটি যাচাইয়ে ৭-১৪ দিন রিভিউ হোল্ড প্রযোজ্য হতে পারে।</span>
         </div>
 
         <form id="withdraw-form" class="withdraw-form">
-          <label class="form-label">পেমেন্ট মেথড সিলেক্ট করুন:</label>
+          <label class="form-label">উত্তোলনের মাধ্যম সিলেক্ট করুন:</label>
           <div class="payment-method-selector">
             <label class="method-option">
               <input type="radio" name="paymentMethod" value="bKash" checked>
@@ -241,13 +236,13 @@
           </div>
 
           <div class="form-group">
-            <label for="withdraw-phone">মোবাইল নাম্বার (ব্যক্তিগত):</label>
+            <label for="withdraw-phone">মোবাইল নম্বর (ব্যক্তিগত অ্যাকাউন্ট):</label>
             <input type="text" id="withdraw-phone" placeholder="017XXXXXXXX" required>
           </div>
 
           <div class="form-group">
             <label for="withdraw-amount">টাকার পরিমাণ (সর্বনিম্ন ৳৫০):</label>
-            <input type="number" id="withdraw-amount" min="50" max="10000" placeholder="টাকার পরিমাণ লিখুন" required>
+            <input type="number" id="withdraw-amount" min="50" max="10000" placeholder="টাকার পরিমাণ লিখুন (সর্বনিম্ন ৳৫০)" required>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block">
@@ -259,7 +254,7 @@
           <h4><i class="fa-solid fa-history"></i> সাম্প্রতিক লেনদেন</h4>
           <ul class="payout-list" id="payout-history-list">
             <li class="empty-history-notice">
-              <span>বর্তমানে কোনো পেন্ডিং লেনদেন নেই। কাজ সম্পন্ন করে ব্যালেন্স যোগ করুন।</span>
+              <span>বর্তমানে কোনো পেন্ডিং লেনদেন নেই। কাজ সম্পন্ন করে ব্যালেন্স তৈরি করুন।</span>
             </li>
           </ul>
         </div>
@@ -281,7 +276,7 @@
         <div class="task-meta-bar">
           <span class="badge-reward" id="modal-task-reward"><i class="fa-solid fa-coins"></i> ৳ ১৫.০০</span>
           <span class="badge-time" id="modal-task-time"><i class="fa-regular fa-clock"></i> ৩ মিনিট</span>
-          <span class="badge-slots" id="modal-task-slots"><i class="fa-solid fa-user-group"></i> ৫০/১০০ বাকি</span>
+          <span class="badge-slots" id="modal-task-id"><i class="fa-solid fa-hashtag"></i> ID: UT-101</span>
         </div>
 
         <div class="task-instructions-box">
@@ -293,7 +288,7 @@
 
         <div class="alert-hold-warning">
           <i class="fa-solid fa-clock-rotate-left text-gold"></i>
-          <span><strong>সতর্কতা:</strong> ভিপিএন বা ভুয়া প্রমাণ দিলে আবেদন বাতিল ও একাউন্ট স্থায়ীভাবে বন্ধ হবে। সঠিক প্রমাণের পর ৭-১৪ দিনের মধ্যে ভেরিফিকেশন সম্পন্ন হয়।</span>
+          <span><strong>সতর্কতা:</strong> ভিপিএন বা ভুয়া প্রমাণ দিলে আবেদন বাতিল ও একাউন্ট স্থায়ীভাবে বন্ধ হবে। বিজ্ঞাপকের অডিট ও চার্জব্যাক প্রতিরোধে ৭-১৪ দিন পর্যন্ত হোল্ড থাকতে পারে।</span>
         </div>
 
         <form id="task-submit-form" class="task-submit-form">
@@ -303,74 +298,12 @@
           </div>
 
           <div class="form-group">
-            <label for="proof-screenshot"><i class="fa-solid fa-camera"></i> স্ক্রিনশট লিংক (যদি থাকে / ঐচ্ছিক):</label>
-            <input type="url" id="proof-screenshot" placeholder="https://imgur.com/ বা গুগল ড্রাইভ লিংক">
+            <label for="proof-screenshot"><i class="fa-solid fa-camera"></i> স্ক্রিনশট লিংক (যদি প্রযোজ্য হয়):</label>
+            <input type="url" id="proof-screenshot" placeholder="https://imgur.com/ বা গুগল ড্রাইভ ভিউ লিংক">
           </div>
 
           <button type="submit" class="btn btn-primary btn-block">
             <i class="fa-solid fa-check-double"></i> প্রুফ সাবমিট করুন
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Post a Task Modal (For Employers / 2 Brothers) -->
-  <div class="modal-overlay" id="post-task-modal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title">
-          <i class="fa-solid fa-plus-circle text-emerald"></i>
-          <h3>নতুন হালাল কাজ পোস্ট করুন</h3>
-        </div>
-        <button class="btn-close-modal" id="close-post-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form id="create-task-form" class="withdraw-form">
-          <div class="form-group">
-            <label for="new-task-title">কাজের শিরোনাম:</label>
-            <input type="text" id="new-task-title" placeholder="যেমন: আমাদের ওয়েবসাইটে রেজিস্ট্রেশন করে রিভিউ দিন" required>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="new-task-category">ক্যাটাগরি:</label>
-              <select id="new-task-category" required>
-                <option value="app">অ্যাপ ও ওয়েবসাইট টেস্ট</option>
-                <option value="youtube">তথ্য ও রিসার্চ</option>
-                <option value="data">ডাটা এন্ট্রি</option>
-                <option value="social">সোশ্যাল টাস্ক</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="new-task-pay">প্রতি ওয়ার্কারকে পারিশ্রমিক (টাকা):</label>
-              <input type="number" id="new-task-pay" min="5" value="15" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="new-task-slots">কতজন ওয়ার্কার দরকার:</label>
-              <input type="number" id="new-task-slots" min="1" value="50" required>
-            </div>
-            <div class="form-group">
-              <label for="new-task-time">আনুমানিক সময়:</label>
-              <input type="text" id="new-task-time" value="৩ মিনিট" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="new-task-instructions">কাজের বিস্তারিত নিয়মাবলী:</label>
-            <textarea id="new-task-instructions" rows="3" placeholder="ধাপ ১: এই লিংকে যান... ধাপ ২: একাউন্ট খুলুন..." required></textarea>
-          </div>
-
-          <div class="alert-halal-note">
-            <i class="fa-solid fa-shield-halal text-emerald"></i> 
-            <span>মনে রাখবেন: কোনো প্রকার বেটিং, জুয়া বা অনৈতিক প্রমোশনের কাজ সরাসরি বাতিল ও একাউন্ট ব্লক করা হবে।</span>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-block">
-            <i class="fa-solid fa-upload"></i> কাজ পাবলিশ করুন
           </button>
         </form>
       </div>
@@ -393,12 +326,13 @@
       <div class="footer-links">
         <h4>কোম্পানি ও নীতিমালা</h4>
         <a href="about.html">আমাদের সম্পর্কে ও নিয়ম</a>
+        <a href="faq.html">সাধারণ জিজ্ঞাসা (FAQ)</a>
         <a href="terms.html">ব্যবহারের শর্তাবলী (Terms)</a>
         <a href="privacy.html">প্রাইভেসি পলিসি (Privacy)</a>
         <a href="contact.html">যোগাযোগ ও সাপোর্ট</a>
       </div>
       <div class="footer-payment">
-        <h4>গ্রহণযোগ্য পেমেন্ট পার্টনার</h4>
+        <h4>সমর্থিত উত্তোলনের মাধ্যম</h4>
         <div class="payment-badges">
           <span class="pay-badge bkash">bKash</span>
           <span class="pay-badge nagad">Nagad</span>
