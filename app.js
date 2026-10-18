@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       provider: 'CPX Research',
       title: 'দৈনন্দিন লাইফস্টাইল ও অনলাইন শপিং মার্কেট রিসার্চ সার্ভে',
       category: 'survey',
-      categoryLabel: 'অফারওয়াল সার্ভে',
+      categoryLabel: 'সার্ভে (শীঘ্রই আসছে)',
       reward: 22.0,
       time: '৪ মিনিট',
       desc: 'আন্তর্জাতিক ব্র্যান্ডের মার্কেট রিসার্চ সার্ভেতে অংশ নিয়ে আপনার অভিমত দিন। সঠিক সম্পন্ন হলে স্বয়ংক্রিয় পোস্টব্যাক ক্রেডিট হবে।',
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       provider: 'Lootably',
       title: 'কনজিউমার টেকনোলজি ও ডিজিটাল সার্ভিস মতামত পোল',
       category: 'survey',
-      categoryLabel: 'অফারওয়াল সার্ভে',
+      categoryLabel: 'সার্ভে (শীঘ্রই আসছে)',
       reward: 15.0,
       time: '৩ মিনিট',
       desc: 'ডিজিটাল সার্ভিস ব্যবহার সম্পর্কিত ছোট রিসার্চ পোল। কোনো প্রকার প্রক্সি বা ভিপিএন ছাড়া সততার সাথে সম্পন্ন করুন।',
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-wallet text-gold"></i>
             <span class="wallet-label">ব্যালেন্স:</span>
             <span class="wallet-amount" id="user-balance">৳ ${userWallet.available.toFixed(2)}</span>
-            <button class="btn-quick-withdraw" title="উইথড্র করুন">টাকা তুলুন</button>
+            <button class="btn-quick-withdraw" title="উইথড্র করুন">টাকা তুলুন (মিনিমাম ৳৫০)</button>
           </div>
           <div class="user-profile-badge" style="display: flex; align-items: center; gap: 8px;">
             <div class="avatar"><i class="fa-solid fa-user-check"></i></div>
@@ -444,10 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => window.location.href = 'login.html', 1000);
         return;
       }
-      showToast(`${network} কানেক্ট হচ্ছে... আপনার সুরক্ষিত ইউজার সেশন তৈরি হচ্ছে।`, 'success');
-      setTimeout(() => {
-        showToast(`স্বাগতম! ${network} থেকে পছন্দমতো কাজ বেছে নিন। সম্পন্ন হলে স্বয়ংক্রিয় পোস্টব্যাক আসবে।`, 'success');
-      }, 1500);
+      showToast(`${network} অফারওয়াল সার্ভিস বর্তমানে ইন্টিগ্রেশন ও টেকনিক্যাল টেস্টিং প্রক্রিয়ায় রয়েছে। নেটওয়ার্ক চূড়ান্ত অনুমোদন সাপেক্ষে শীঘ্রই উন্মুক্ত করা হবে।`, 'success');
     });
   });
 
