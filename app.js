@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => window.location.href = 'login.html', 1000);
         return;
       }
-      showToast(`${network} অফারওয়াল সার্ভিস বর্তমানে ইন্টিগ্রেশন ও টেকনিক্যাল টেস্টিং প্রক্রিয়ায় রয়েছে। নেটওয়ার্ক চূড়ান্ত অনুমোদন সাপেক্ষে শীঘ্রই উন্মুক্ত করা হবে।`, 'success');
+      showToast('আমরা Lootably ও CPX Research এর সাথে পার্টনারশিপের জন্য আবেদন প্রক্রিয়ায় আছি; চূড়ান্ত অনুমোদন পাওয়ার পর সার্ভিস চালু হবে।', 'success');
     });
   });
 
