@@ -143,6 +143,22 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tasksContainer) {
     renderTasks();
   }
+  renderCPXSurveyWall();
+
+  // Sync with Supabase Auth if available
+  if (window.ujrahAuth && window.ujrahAuth.getCurrentUser) {
+    window.ujrahAuth.getCurrentUser().then(user => {
+      if (user) {
+        currentUser = user;
+        userWallet.available = user.balance || 0.0;
+        userWallet.pending = user.pending || 0.0;
+        userWallet.withdrawn = user.withdrawn || 0.0;
+        updateAuthHeader();
+        updateWalletUI();
+        renderCPXSurveyWall();
+      }
+    });
+  }
 
   // Auth Header Management
   function updateAuthHeader() {
@@ -199,6 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function logoutUser() {
+    if (window.ujrahAuth && window.ujrahAuth.signOut) {
+      window.ujrahAuth.signOut();
+    }
     localStorage.removeItem('ujrah_user');
     currentUser = null;
     showToast('সফলভাবে লগআউট হয়েছে', 'success');
@@ -448,14 +467,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Render CPX Survey Wall (Dynamic Server-Generated Iframe for Logged-In Users)
+  async function renderCPXSurveyWall() {
+    const wallArea = document.getElementById('cpx-wall-render-area');
+    if (!wallArea) return;
+
+    if (!currentUser) {
+      wallArea.innerHTML = `
+        <div style="text-align: center; padding: 40px 20px; background: rgba(15, 23, 42, 0.5); border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.12);">
+          <i class="fa-solid fa-lock" style="font-size: 2.2rem; color: #fbbf24; margin-bottom: 14px;"></i>
+          <h4 style="font-size: 1.15rem; margin-bottom: 8px; color: #fff;">সার্ভে ওয়ালে অংশ নিতে লগইন প্রয়োজন</h4>
+          <p style="color: var(--text-dim); max-width: 480px; margin: 0 auto 20px; font-size: 0.92rem; line-height: 1.5;">
+            CPX Research সার্ভে সম্পন্ন করে সঠিক পয়েন্ট ও অর্জিত অর্থ পাওয়ার জন্য আপনার ভেরিফাইড অ্যাকাউন্টে লগইন থাকা আবশ্যক।
+          </p>
+          <a href="login.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-right-to-bracket"></i> লগইন করে সার্ভে শুরু করুন
+          </a>
+        </div>
+      `;
+      const liveBadge = document.getElementById('cpx-live-badge');
+      if (liveBadge) {
+        liveBadge.innerHTML = '<i class="fa-solid fa-lock"></i> লগইন প্রয়োজন';
+        liveBadge.style.color = '#fbbf24';
+        liveBadge.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+        liveBadge.style.background = 'rgba(245, 158, 11, 0.1)';
+      }
+      return;
+    }
+
+    // User is logged in
+    try {
+      wallArea.innerHTML = `
+        <div style="text-align: center; padding: 40px 20px;">
+          <i class="fa-solid fa-spinner fa-spin" style="font-size: 2.2rem; color: var(--emerald); margin-bottom: 12px;"></i>
+          <p style="color: var(--text-dim);">সার্ভে ওয়াল সুরক্ষিতভাবে লোড হচ্ছে...</p>
+        </div>
+      `;
+
+      let iframeUrl = '';
+      if (window.ujrahAuth && window.ujrahAuth.getCPXWallUrl) {
+        iframeUrl = await window.ujrahAuth.getCPXWallUrl(currentUser.id);
+      } else {
+        const res = await fetch(`/api/cpx/wall-url?user_id=${encodeURIComponent(currentUser.id)}`);
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          throw new Error(data.error || 'সার্ভার সেশন রেসপন্স দেয়নি');
+        }
+        iframeUrl = data.url;
+      }
+
+      wallArea.innerHTML = `
+        <div style="width: 100%; border-radius: 10px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+          <iframe
+            id="cpx-survey-iframe"
+            width="100%"
+            frameBorder="0"
+            height="2000px"
+            src="${iframeUrl}"
+            title="CPX Research Survey Wall"
+            style="display: block; width: 100%; min-height: 800px; border: none; background: #ffffff;">
+          </iframe>
+        </div>
+      `;
+
+      const liveBadge = document.getElementById('cpx-live-badge');
+      if (liveBadge) {
+        liveBadge.innerHTML = '<i class="fa-solid fa-circle-check"></i> সার্ভে অ্যাক্টিভ';
+        liveBadge.style.color = '#10b981';
+        liveBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        liveBadge.style.background = 'rgba(16, 185, 129, 0.1)';
+      }
+    } catch (err) {
+      console.error('[CPX Wall Render Error]:', err);
+      wallArea.innerHTML = `
+        <div style="text-align: center; padding: 35px 20px; background: rgba(239, 68, 68, 0.08); border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.25);">
+          <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; color: #ef4444; margin-bottom: 12px;"></i>
+          <h4 style="font-size: 1.1rem; margin-bottom: 6px; color: #fff;">সার্ভে ওয়াল সেশন তৈরি করা যায়নি</h4>
+          <p style="color: var(--text-dim); font-size: 0.9rem; max-width: 520px; margin: 0 auto 14px;">
+            ${err.message || 'সার্ভার থেকে সিকিউর সেশন পাওয়া যায়নি।'}
+          </p>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            Vercel Environment Variable এ <code>CPX_SECURE_HASH</code> কনফিগার করা থাকলে এটি স্বয়ংক্রিয়ভাবে লোড হবে।
+          </p>
+        </div>
+      `;
+    }
+  }
+
   // Login Form Handler (for login.html)
   const loginForm = document.getElementById('login-form');
   if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
+    loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('login-email').value.trim();
       const password = document.getElementById('login-password').value.trim();
       const alertBox = document.getElementById('auth-alert');
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
 
       if (!email || !password) {
         if (alertBox) {
@@ -465,33 +572,54 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Check registered users or create session
-      let existingUsers = JSON.parse(localStorage.getItem('ujrah_users_db') || '[]');
-      let matched = existingUsers.find(u => u.email === email || u.phone === email);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> লগইন হচ্ছে...';
+      }
 
-      const userSession = matched || {
-        name: email.split('@')[0] || 'ব্যবহারকারী',
-        email: email,
-        phone: '01700000000',
-        balance: 0.0,
-        pending: 0.0,
-        withdrawn: 0.0
-      };
+      try {
+        let userSession = null;
+        if (window.ujrahAuth && window.ujrahAuth.isConfigured && window.ujrahAuth.isConfigured()) {
+          userSession = await window.ujrahAuth.signIn(email, password);
+        } else {
+          // Fallback local session
+          let existingUsers = JSON.parse(localStorage.getItem('ujrah_users_db') || '[]');
+          let matched = existingUsers.find(u => u.email === email || u.phone === email);
+          userSession = matched || {
+            id: 'usr_' + Date.now().toString(36),
+            name: email.split('@')[0] || 'ব্যবহারকারী',
+            email: email,
+            phone: '01700000000',
+            balance: 0.0,
+            pending: 0.0,
+            withdrawn: 0.0
+          };
+          localStorage.setItem('ujrah_user', JSON.stringify(userSession));
+        }
 
-      localStorage.setItem('ujrah_user', JSON.stringify(userSession));
-      currentUser = userSession;
-
-      showToast('আলহামদুলিল্লাহ! সফলভাবে লগইন হয়েছে। ড্যাশবোর্ডে নিয়ে যাওয়া হচ্ছে...', 'success');
-      setTimeout(() => {
-        window.location.href = 'tasks.html';
-      }, 1000);
+        currentUser = userSession;
+        showToast('আলহামদুলিল্লাহ! সফলভাবে লগইন হয়েছে। ড্যাশবোর্ডে নিয়ে যাওয়া হচ্ছে...', 'success');
+        setTimeout(() => {
+          window.location.href = 'tasks.html';
+        }, 1000);
+      } catch (err) {
+        if (alertBox) {
+          alertBox.style.display = 'block';
+          alertBox.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> ${err.message || 'লগইন ব্যর্থ হয়েছে। সঠিক তথ্য প্রদান করুন।'}`;
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> লগইন করুন';
+        }
+      }
     });
   }
 
   // Signup Form Handler (for signup.html)
   const signupForm = document.getElementById('signup-form');
   if (signupForm) {
-    signupForm.addEventListener('submit', (e) => {
+    signupForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('signup-name').value.trim();
       const email = document.getElementById('signup-email').value.trim();
@@ -499,6 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const password = document.getElementById('signup-password').value;
       const confirmPassword = document.getElementById('signup-confirm-password').value;
       const alertBox = document.getElementById('signup-alert');
+      const submitBtn = signupForm.querySelector('button[type="submit"]');
 
       if (password !== confirmPassword) {
         if (alertBox) {
@@ -516,27 +645,50 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const newUser = {
-        name: name,
-        email: email,
-        phone: phone,
-        password: password,
-        balance: 0.0,
-        pending: 0.0,
-        withdrawn: 0.0,
-        joinedAt: new Date().toISOString()
-      };
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> অ্যাকাউন্ট তৈরি হচ্ছে...';
+      }
 
-      let existingUsers = JSON.parse(localStorage.getItem('ujrah_users_db') || '[]');
-      existingUsers.push(newUser);
-      localStorage.setItem('ujrah_users_db', JSON.stringify(existingUsers));
-      localStorage.setItem('ujrah_user', JSON.stringify(newUser));
-      currentUser = newUser;
+      try {
+        let newUser = null;
+        if (window.ujrahAuth && window.ujrahAuth.isConfigured && window.ujrahAuth.isConfigured()) {
+          newUser = await window.ujrahAuth.signUp(email, password, name, phone);
+        } else {
+          // Fallback local registration
+          newUser = {
+            id: 'usr_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
+            name: name,
+            email: email,
+            phone: phone,
+            password: password,
+            balance: 0.0,
+            pending: 0.0,
+            withdrawn: 0.0,
+            joinedAt: new Date().toISOString()
+          };
+          let existingUsers = JSON.parse(localStorage.getItem('ujrah_users_db') || '[]');
+          existingUsers.push(newUser);
+          localStorage.setItem('ujrah_users_db', JSON.stringify(existingUsers));
+          localStorage.setItem('ujrah_user', JSON.stringify(newUser));
+        }
 
-      showToast('আলহামদুলিল্লাহ! অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে। টাস্ক ড্যাশবোর্ডে স্বাগতম!', 'success');
-      setTimeout(() => {
-        window.location.href = 'tasks.html';
-      }, 1200);
+        currentUser = newUser;
+        showToast('আলহামদুলিল্লাহ! অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে। টাস্ক ড্যাশবোর্ডে স্বাগতম!', 'success');
+        setTimeout(() => {
+          window.location.href = 'tasks.html';
+        }, 1200);
+      } catch (err) {
+        if (alertBox) {
+          alertBox.style.display = 'block';
+          alertBox.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> ${err.message || 'অ্যাকাউন্ট তৈরি করতে সমস্যা হয়েছে।'}`;
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> অ্যাকাউন্ট তৈরি করুন';
+        }
+      }
     });
   }
 

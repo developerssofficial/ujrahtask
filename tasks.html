@@ -70,15 +70,24 @@
       </div>
 
       <div class="offerwall-grid">
-        <div class="offerwall-card">
+        <!-- CPX Research Survey Wall Section -->
+        <div class="offerwall-card" id="cpx-survey-card" style="grid-column: 1 / -1;">
           <div class="offerwall-header">
-            <div class="partner-logo cpx-logo"><i class="fa-solid fa-chart-pie"></i> CPX Research</div>
-            <span class="partner-badge" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.1);"><i class="fa-solid fa-clock"></i> শীঘ্রই আসছে</span>
+            <div class="partner-logo cpx-logo"><i class="fa-solid fa-chart-pie"></i> CPX Research লাইভ সার্ভে ওয়াল</div>
+            <span class="partner-badge" id="cpx-live-badge" style="color: #10b981; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.1);"><i class="fa-solid fa-circle-check"></i> সার্ভে অ্যাক্টিভ</span>
           </div>
-          <p class="offerwall-desc">মার্কেট রিসার্চ প্রশ্নাবলীর উত্তর দিয়ে প্রতি সার্ভেতে পারিশ্রমিক পাওয়ার ব্যবস্থা। আমরা Lootably ও CPX Research এর সাথে পার্টনারশিপের জন্য আবেদন প্রক্রিয়ায় আছি; চূড়ান্ত অনুমোদন পাওয়ার পর সার্ভিস চালু হবে।</p>
-          <div class="offerwall-footer">
-            <span class="text-dim"><i class="fa-solid fa-hourglass-half text-gold"></i> ইন্টিগ্রেশন প্রক্রিয়াধীন</span>
-            <button class="btn btn-glass btn-sm offerwall-open-btn" data-network="CPX Research" style="opacity: 0.85;">শীঘ্রই উন্মুক্ত</button>
+          
+          <div class="badge-info-box" style="margin: 14px 0;">
+            <i class="fa-solid fa-circle-info text-emerald"></i>
+            <span>আমরা Lootably ও CPX Research এর সাথে পার্টনারশিপের জন্য আবেদন প্রক্রিয়ায় আছি; চূড়ান্ত অনুমোদন পাওয়ার পর সার্ভিস চালু হবে।</span>
+          </div>
+
+          <!-- Dynamic Container: Authenticated Wall Iframe or Login Requirement -->
+          <div id="cpx-wall-render-area">
+            <div style="text-align: center; padding: 35px 20px;">
+              <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: var(--emerald); margin-bottom: 12px;"></i>
+              <p style="color: var(--text-dim);">সার্ভে ওয়াল লোড হচ্ছে...</p>
+            </div>
           </div>
         </div>
 
@@ -292,6 +301,8 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

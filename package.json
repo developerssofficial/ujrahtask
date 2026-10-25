@@ -1,0 +1,12 @@
+{
+  "name": "ujrahtask",
+  "version": "1.0.0",
+  "description": "UjrahTask Platform with CPX Research integration and Supabase backend",
+  "main": "api/postback/cpx.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.8"
+  }
+}
