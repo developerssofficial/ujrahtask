@@ -2,10 +2,10 @@
 // Connects frontend to Supabase PostgreSQL & Auth with fallback protection
 
 (function() {
-  // Config: Put your Supabase project keys here or inject via window.UJRAH_SUPABASE_CONFIG
+  // Config: Supabase project credentials for client-side Auth and queries
   const CONFIG = window.UJRAH_SUPABASE_CONFIG || {
-    url: '',      // Example: 'https://xyzcompany.supabase.co'
-    anonKey: ''  // Example: 'eyJhbGciOiJIUzI1NiIsIn...'
+    url: 'https://zywtxgshbmkjgrkzribf.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5d3R4Z3NoYm1ramdya3pyaWJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI5MzYxOTUsImV4cCI6MjEwODUxMjE5NX0.D3N_UlTJsb1qNX_rbSfK6Wgu2_lD4HoSdAOXD45ggHM'
   };
 
   let supabase = null;

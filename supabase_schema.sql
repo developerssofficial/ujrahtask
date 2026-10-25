@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
 -- 3. Create Offerwall & Survey Transactions Table
 CREATE TABLE IF NOT EXISTS public.transactions (
   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  user_id UUID REFERENCES public.profiles(id) ON DELETE CASCADE NOT NULL,
+  user_id TEXT NOT NULL,
   trans_id TEXT UNIQUE NOT NULL,
   provider TEXT NOT NULL DEFAULT 'CPX Research',
   points NUMERIC(12, 2) DEFAULT 0.00 NOT NULL,
@@ -33,6 +33,9 @@ CREATE TABLE IF NOT EXISTS public.transactions (
   hold_until TIMESTAMPTZ DEFAULT (NOW() + INTERVAL '14 days') NOT NULL,
   created_at TIMESTAMPTZ DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
 );
+
+CREATE INDEX IF NOT EXISTS idx_transactions_user_id ON public.transactions(user_id);
+CREATE INDEX IF NOT EXISTS idx_transactions_trans_id ON public.transactions(trans_id);
 
 -- 4. Enable Row Level Security (RLS)
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
@@ -51,7 +54,7 @@ CREATE POLICY "Users can update their own profile basic info"
 -- 6. RLS Policies for Transactions
 CREATE POLICY "Users can view their own transactions"
   ON public.transactions FOR SELECT
-  USING (auth.uid() = user_id);
+  USING (auth.uid()::text = user_id);
 
 -- 7. Trigger to automatically create a profile entry when a new user signs up in Supabase Auth
 CREATE OR REPLACE FUNCTION public.handle_new_user()
